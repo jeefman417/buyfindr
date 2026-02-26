@@ -450,17 +450,9 @@ export default function App() {
     const start = Date.now();
 
     try {
-      const params = new URLSearchParams({
-        engine: "google_shopping",
-        q: term,
-        api_key: SERP_API_KEY,
-        gl: "us",
-        hl: "en",
-        num: "10",
-        tbs: "p_ord:p",
-      });
+      
 
-      const res = await fetch(`https://serpapi.com/search?${params}`);
+      const res = await fetch(`/api/search?q=${encodeURIComponent(term)}`);
       const data = await res.json();
 
       if (data.error) throw new Error(data.error);
