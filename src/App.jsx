@@ -467,6 +467,10 @@ export default function App() {
 
       setElapsed(((Date.now() - start) / 1000).toFixed(1));
       setResults(items);
+      setTimeout(() => {
+        document.querySelector('.results-wrap')?.scrollIntoView({ behavior: 
+      'smooth' });
+      }, 100);
     } catch (err) {
       setError(err.message);
     } finally {
